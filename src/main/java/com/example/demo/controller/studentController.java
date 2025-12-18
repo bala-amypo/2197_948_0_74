@@ -10,12 +10,13 @@ import com.example.demo.entity.*;
 import com.example.demo.service.*;
 
 @RestController
+@RequestMapping("/student")
 public class studentController {
 
     @Autowired
     studentService service;
 
-    @GetMapping("/getAllStudent")
+    @GetMapping("/getAll")
     public List<studentEntity> getAll(){
         return service.getAll();
     }
@@ -24,5 +25,7 @@ public class studentController {
     public studentEntity addStudent(@Valid  @RequestBody studentEntity student ){
         return service.addStudent(student);
     }
+    @GetMapping("/get/{id}")
+    public studentEntity getbyId(@PathVariable )
     
 }
