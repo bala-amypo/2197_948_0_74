@@ -7,7 +7,7 @@ import java.util.*;
 @RestControllerAdvice
 public class globalExceptionHandler{
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?>handleFieldError(MethodArgumentNotValidException ex){
+    public ResponseEntity<Map>handleFieldError(MethodArgumentNotValidException ex){
         Map<String,String> error = new HashMap<>();
         ex.getBindingResult().getFieldError().forEach(err -> error.put(err.getField(),err.getDefaultMessage()));
         return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
