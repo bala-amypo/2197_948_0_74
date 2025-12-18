@@ -26,6 +26,8 @@ public class studentController {
         return service.addStudent(student);
     }
     @GetMapping("/get/{id}")
-    public studentEntity getbyId(@PathVariable )
+    public studentEntity getbyId(@PathVariable Long id){
+        return service.getbyId(id);
+    }
     
 }
