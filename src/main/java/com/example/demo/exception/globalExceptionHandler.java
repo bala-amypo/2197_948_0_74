@@ -14,6 +14,6 @@ public class globalExceptionHandler{
     }
     @ExceptionHandler(studentNotFoundException.class)
     public ResponseEntity<String>handleStudentNotValid(studentNotFoundException ex){
-        
+        return ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
     }
 }
