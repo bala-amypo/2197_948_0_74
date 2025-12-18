@@ -8,8 +8,8 @@ import java.util.*;
 public class globalExceptionHandler{
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map>handleFieldError(MethodArgumentNotValidException ex){
-        Map<String,String> error = new HashMap<>();
-        ex.getBindingResult().getFieldErrors().forEach(err -> error.put(err.getField(),err.getDefaultMessage()));
-        return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+        Map<String,String> errors = new HashMap<>();
+        ex.getBindingResult().getFieldErrors().forEach(err -> errors.put(err.getField(),err.getDefaultMessage()));
+        return new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
     }
 }
