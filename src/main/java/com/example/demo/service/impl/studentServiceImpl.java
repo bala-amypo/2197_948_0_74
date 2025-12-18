@@ -27,12 +27,12 @@ public class studentServiceImpl implements studentService{
     }
     public studentEntity updateById( Long id, studentEntity newstu){
        studentEntity existing=getbyId(id);
-       newstu.setId(existing);//newstu.setId(id);
+       newstu.setId(existing.getId());//newstu.setId(id);
        return repo.save(newstu);
     }
-    public studentEntity deleteById( Long id){
+    public String deleteById( Long id){
        studentEntity data=getById(id);
-        
+       repo.deleteById(id);
     }
 
 }

@@ -34,8 +34,9 @@ public class studentController {
         return service.updateById(id,newstu);
     }
     @DeleteMapping("/delete/{id}")
-    public studentEntity deleteById(@PathVariable Long id){
-        return service.deleteById(id);
+    public String deleteById(@PathVariable Long id){
+       return  service.deleteById(id);
+        
     }
     
     
